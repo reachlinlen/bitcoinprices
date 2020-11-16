@@ -19,7 +19,7 @@ interface BitCoinPrices {
 
 function AllCurrencies() {
   const [backDrop, setBackDrop] = React.useState(true);
-  const [priceIdx, setPriceIdx] = React.useState({} as BitCoinPrices);
+  const [coinPrices, setCoinPrices] = React.useState({} as BitCoinPrices);
   const [errorMsg, setErrorMsg] = React.useState("");
 
   React.useEffect(() => {
@@ -31,7 +31,7 @@ function AllCurrencies() {
     }
     Axios.get(`${URL}`, config)
       .then((res: any) => {
-        setPriceIdx(res.data.bpi);
+        setCoinPrices(res.data.bpi);
         setBackDrop(false);
       })
       .catch(err => {
@@ -50,10 +50,6 @@ function AllCurrencies() {
       })
   }, [])
 
-  const handleCurrClick = (e: React.MouseEvent) => {
-    console.log({ e })
-  }
-
   return (
     <>
       <h3>All Currencies</h3>
@@ -61,7 +57,7 @@ function AllCurrencies() {
         backDrop ?
           <BackDrop />
           :
-          <CurrencyList errorMsg={errorMsg} priceIdx={priceIdx} />
+          <CurrencyList errorMsg={errorMsg} coinPrices={coinPrices} />
       }
     </>
   )

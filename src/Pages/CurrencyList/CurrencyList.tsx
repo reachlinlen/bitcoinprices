@@ -9,17 +9,16 @@ interface BitCoinPrice {
   rate: string,
   description: string
 }
-
 interface BitCoinPrices {
   [key: string]: BitCoinPrice
 }
 
 type CurrencyProps = {
   errorMsg?: string,
-  priceIdx?: BitCoinPrices
+  coinPrices?: BitCoinPrices
 }
 
-function CurrencyList({ errorMsg, priceIdx }: CurrencyProps) {
+function CurrencyList({ errorMsg, coinPrices }: CurrencyProps) {
 
   const [open, setOpen] = React.useState(false);
   const [selCurr, setSelCurr] = React.useState('');
@@ -45,7 +44,7 @@ function CurrencyList({ errorMsg, priceIdx }: CurrencyProps) {
           :
           <ul className="currencylist">
             {
-              Object.keys(priceIdx ? priceIdx : {}).map((curr, index) => <li key={curr} className="currency" onClick={handleCurrClick(curr)}>{curr}</li>)
+              Object.keys(coinPrices ? coinPrices : {}).map((curr, index) => <li key={curr} className="currency" onClick={handleCurrClick(curr)}>{curr}</li>)
             }
           </ul>
       }
@@ -53,7 +52,7 @@ function CurrencyList({ errorMsg, priceIdx }: CurrencyProps) {
         open &&
         <Modal handleChange={handleClose}>
           {
-            Object.entries(priceIdx ? priceIdx[selCurr] : {}).map(([k, v]) => (
+            Object.entries(coinPrices ? coinPrices[selCurr] : {}).map(([k, v]) => (
               <p key={k}>{k} : {v}</p>
             ))
           }
