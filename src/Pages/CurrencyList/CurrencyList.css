@@ -1,0 +1,10 @@
+.currency {
+  max-width: 5vw;
+  cursor: pointer;
+  height: 6vh;
+  margin: auto;
+}
+
+li {
+  list-style-type: circle;
+}
