@@ -1,9 +1,6 @@
 import React from 'react';
-import Axios from 'axios';
 
 import './CurrencyList.css';
-import { URL } from '../../constants/constants';
-import BackDrop from '../../library/BackDrop/BackDrop';
 import Modal from '../../library/Modal/Modal';
 
 interface BitCoinPrice {
