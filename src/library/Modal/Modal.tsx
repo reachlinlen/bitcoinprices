@@ -14,7 +14,6 @@ function Modal({ handleChange, children }: ModalProps) {
     modal.style.display = "block"
   })
 
-  // When the user clicks on <span> (x), close the modal
   const handleClick = () => {
     var modal = document.getElementById("myModal") as HTMLFormElement;
     modal.style.display = "none";
