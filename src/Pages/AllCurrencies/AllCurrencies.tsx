@@ -4,7 +4,7 @@ import Axios from 'axios';
 import './AllCurrencies.css';
 import { URL } from '../../constants/constants';
 import BackDrop from '../../library/BackDrop/BackDrop';
-import CurrencyList from '../CurrencyList/CurrencyList';
+import CurrencyList from '../../components/CurrencyList/CurrencyList';
 
 interface BitCoinPrice {
   code: string,
