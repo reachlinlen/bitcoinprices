@@ -2,22 +2,25 @@ import React from 'react';
 
 import './Modal.css';
 
+type handleFunc = () => void;
 interface ModalProps {
-  handleChange: Function,
+  handleChange: handleFunc,
   children: React.ReactNode
 }
 
 function Modal({ handleChange, children }: ModalProps) {
 
+  const modal = document.getElementById("myModal") as HTMLFormElement;
+
   React.useEffect(() => {
-    var modal = document.getElementById("myModal") as HTMLFormElement;
+    const modal = document.getElementById("myModal") as HTMLFormElement;
     modal.style.display = "block"
   })
 
   const handleClick = () => {
-    var modal = document.getElementById("myModal") as HTMLFormElement;
+    const modal = document.getElementById("myModal") as HTMLFormElement;
     modal.style.display = "none";
-    handleChange();
+    handleChange;
   }
 
   return (
