@@ -23,7 +23,7 @@ function CurrencyList({ errorMsg, coinPrices }: CurrencyProps) {
   const [open, setOpen] = React.useState(false);
   const [selCurr, setSelCurr] = React.useState('');
 
-  const handleCurrClick = (curr: string) => (e: React.MouseEvent<HTMLLIElement>) => {
+  const handleCurrClick = (curr: string) => () => {
     setOpen(true);
     setSelCurr(curr);
   }
@@ -44,7 +44,7 @@ function CurrencyList({ errorMsg, coinPrices }: CurrencyProps) {
           :
           <ul className="currencylist">
             {
-              Object.keys(coinPrices ? coinPrices : {}).map((curr, index) => <li key={curr} className="currency" onClick={handleCurrClick(curr)}>{curr}</li>)
+              Object.keys(coinPrices ? coinPrices : {}).map(curr => <li key={curr} className="currency" data-testid="currency" onClick={handleCurrClick(curr)}>{curr}</li>)
             }
           </ul>
       }

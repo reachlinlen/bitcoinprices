@@ -10,8 +10,6 @@ interface ModalProps {
 
 function Modal({ handleChange, children }: ModalProps) {
 
-  const modal = document.getElementById("myModal") as HTMLFormElement;
-
   React.useEffect(() => {
     const modal = document.getElementById("myModal") as HTMLFormElement;
     modal.style.display = "block"
