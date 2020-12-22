@@ -10,6 +10,7 @@ function App() {
       </header>
       <div className="layout">
         <BitCoinPrices />
+        <p>Git testing</p>
       </div>
     </div>
   );
